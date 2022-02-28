@@ -6,7 +6,7 @@
 /*   By: aaitbelh <aaitbelh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 13:32:07 by aaitbelh          #+#    #+#             */
-/*   Updated: 2022/02/23 14:23:46 by aaitbelh         ###   ########.fr       */
+/*   Updated: 2022/02/26 18:52:23 by aaitbelh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ void	*routine(void *d)
 	t_philo	*philo;
 
 	philo = (t_philo *)d;
-	if (philo->id % 2)
-		usleep(500);
+	if (philo->id % 2 == 0)
+		usleep(1500);
 	while (philo->data->lmoot)
 	{
 		if (philo->data->n_of_eat != -1
@@ -117,7 +117,7 @@ int	main(int ac, char **av)
 	i = 0;
 	while (i < data.n_of_philo)
 	{
-		if (pthread_detach(data.th[i]))
+		if (pthread_join(data.th[i], NULL))
 			return (exit_error("ERROR WITH JOING THREADS"));
 		i++;
 	}

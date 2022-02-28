@@ -5,7 +5,7 @@ SRCS = main.c exit.c declarations.c needs.c\
 OBJS = $(SRCS:.c=.o)
 
 CC = gcc
-CFLAGS  = -Wall -Werror -Wextra -pthread
+CFLAGS  = -Wall -Werror -Wextra -pthread -g
 
 all : $(NAME)
 

@@ -6,7 +6,7 @@
 /*   By: aaitbelh <aaitbelh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 10:37:41 by aaitbelh          #+#    #+#             */
-/*   Updated: 2022/02/23 14:19:14 by aaitbelh         ###   ########.fr       */
+/*   Updated: 2022/02/25 15:39:21 by aaitbelh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include <stdio.h>
 # include <pthread.h>
 # include <stdlib.h>
-# include <string.h>
 # include <sys/time.h>
 # include <limits.h>
 
