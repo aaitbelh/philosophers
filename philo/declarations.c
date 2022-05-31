@@ -6,7 +6,7 @@
 /*   By: aaitbelh <aaitbelh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 09:55:46 by aaitbelh          #+#    #+#             */
-/*   Updated: 2022/02/23 17:37:28 by aaitbelh         ###   ########.fr       */
+/*   Updated: 2022/04/16 01:18:10 by aaitbelh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,11 @@ void	make_all2(t_data *data)
 {
 	int	i;
 
+	data->th = malloc(sizeof(pthread_t) * data->n_of_philo);
+	if (!data->th)
+		return ;
 	i = 0;
+	pthread_mutex_init(&data->io, NULL);
 	while (i < data->n_of_philo)
 	{
 		pthread_mutex_init(&data->fork[i], NULL);
@@ -56,6 +60,8 @@ int	make_all(t_data *data, int ac, char **av)
 
 	i = 0;
 	data->n_of_philo = ft_atoi(av[1]);
+	if (!data->n_of_philo)
+		exit(0);
 	data->time_to_die = ft_atoi(av[2]);
 	data->time_to_eat = ft_atoi(av[3]);
 	data->time_to_sleep = ft_atoi(av[4]);
@@ -71,10 +77,6 @@ int	make_all(t_data *data, int ac, char **av)
 	data->philo = malloc(sizeof(t_philo) * data->n_of_philo);
 	if (!data->philo)
 		return (0);
-	data->th = malloc(sizeof(pthread_t) * data->n_of_philo);
-	if (!data->th)
-		return (0);
-	pthread_mutex_init(&data->io, NULL);
 	make_all2(data);
 	return (1);
 }
